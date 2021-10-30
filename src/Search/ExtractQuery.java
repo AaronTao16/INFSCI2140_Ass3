@@ -63,7 +63,8 @@ public class ExtractQuery {
 				} else if(tag.equals("<desc>") || tag.equals("<narr>")){
 					next = topicReader.readLine();
 					while(!p.matcher(next).find()){
-						content.append(p.matcher(next).replaceAll("").trim()).append(" ");
+						// [UNCOMMENT IF SEARCHING BY LONGER QUERY] (title + description + narrative)
+//						content.append(p.matcher(next).replaceAll("").trim()).append(" ");
 						next = topicReader.readLine();
 					}
 				} else {

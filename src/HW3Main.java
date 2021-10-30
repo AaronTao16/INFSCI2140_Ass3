@@ -19,14 +19,17 @@ public class HW3Main {
 		// Open index
 		MyIndexReader ixreader = new MyIndexReader("trectext");
 		Map<Double, List<List<Document>>> map = new HashMap<>();
-//		for(double u = 1000.0; u <= 3000.0; u += 500){
+		// [ADD] For change µ
+//		for(double µ = 1000.0; µ <= 3000.0; µ += 500){
 			// Initialize the MyRetrievalModel
 			QueryRetrievalModel model = new QueryRetrievalModel(ixreader);
-//			QueryRetrievalModel model = new QueryRetrievalModel(ixreader, u);
+			// [ADD] For change µ
+//			QueryRetrievalModel model = new QueryRetrievalModel(ixreader, µ);
 			// Extract the queries
 			ExtractQuery queries = new ExtractQuery();
 
 			long startTime = System.currentTimeMillis();
+			// [ADD] For change µ
 //			List<List<Document>> forQuery = new ArrayList<>();
 			while (queries.hasNext()) {
 
@@ -41,16 +44,19 @@ public class HW3Main {
 						rank++;
 					}
 				}
+				// [ADD] For change µ
 //				forQuery.add(results);
 			}
-//			map.put(u, forQuery);
+			// [ADD] For change µ
+//			map.put(µ, forQuery);
 
 
 			long endTime = System.currentTimeMillis(); // end time of running code
 			System.out.println("\n\n4 queries search time: " + (endTime - startTime) / 60000.0 + " min");
 //		}
-//		ixreader.close();
+		ixreader.close();
 
+		// [ADD] For change µ
 //		for (int q = 0; q < 4; q++) {
 //			for (int i = 0; i < 20; i++) {
 //				for(Double key: map.keySet()){
